@@ -23,10 +23,15 @@
       apt:
         name: docker-ce
     # casper7
+    - name: create /var/lib/casper7
+      file:
+        path: /var/lib/casper7
+        state: directory
     - name: emplace casper7 database
       copy:
         src: casper.db
         dest: /var/lib/casper7/casper.db
+        force: false
     - name: casper7
       docker_container:
         name: casper7

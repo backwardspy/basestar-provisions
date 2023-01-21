@@ -10,6 +10,20 @@ everything i need to get my basestar fully operational
 - [ansible docker community collection](https://galaxy.ansible.com/community/docker) and...
 - [docker SDK for python](https://docker-py.readthedocs.io/en/stable/) - for deploying apps
 - [vagrant](https://www.vagrantup.com/) - for testing against a local box
+
+## usage
+
+create your inventory file
+
+```bash
+$ echo 'example.com ansible_user=username' > inventory
+```
+
+run the playbook
+
+```bash
+$ ansible-playbook playbook.yaml -i inventory --ask-become-pass
+```
  
 ## local usage
 
