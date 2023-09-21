@@ -6,44 +6,19 @@ everything i need to get my basestar fully operational
 
 ## requirements
 
-- [ansible](https://www.ansible.com/) - for configuring everything *just so*
-- [ansible docker community collection](https://galaxy.ansible.com/community/docker) and...
-- [docker SDK for python](https://docker-py.readthedocs.io/en/stable/) - for deploying apps
-- [vagrant](https://www.vagrantup.com/) - for testing against a local box
+- [docker](https://www.docker.com/)
+- [docker compose](https://docs.docker.com/compose/)
 
 ## usage
 
-create your inventory file
+set required environment variables
 
 ```bash
-$ echo 'example.com ansible_user=username' > inventory
+$ export CASPER_DISCORD_TOKEN=token-goes-here
 ```
 
-run the playbook
+bring containers up
 
 ```bash
-$ ansible-playbook playbook.yaml -i inventory --ask-become-pass
-```
- 
-## local usage
-
-set required env vars
-
-```bash
-$ cp .env.example .env
-$ vim .env
-```
-
-bootstrap database
-
-> **note**: this script doesn't exist yet. sorry! check casper's source.
-
-```base
-$ ../casper7/scripts/makedb casper.db
-```
-
-spin up & provision the vagrant box
-
-```bash
-$ vagrant up
+$ docker-compose up -d
 ```

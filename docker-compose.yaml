@@ -1,0 +1,8 @@
+services:
+  casper:
+    image: phasecorex/red-discordbot
+    volumes:
+      - /var/lib/casper:/data
+    environment:
+      - "TOKEN=$CASPER_DISCORD_TOKEN"
+      - "PREFIX=!"
