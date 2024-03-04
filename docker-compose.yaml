@@ -1,8 +1,33 @@
+version: "3"
+
 services:
   casper:
-    image: phasecorex/red-discordbot
+    image: "phasecorex/red-discordbot"
+    restart: "always"
     volumes:
-      - /var/lib/casper:/data
+      - "/var/lib/casper:/data"
     environment:
       - "TOKEN=$CASPER_DISCORD_TOKEN"
       - "PREFIX=!"
+
+  sparkler:
+    image: "ghcr.io/backwardspy/sparkler:main"
+    restart: "always"
+    ports:
+      - "3000:3000"
+
+  nginx:
+    image: "nginx:latest"
+    restart: "always"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./nginx/conf/:/etc/nginx/conf.d/:ro"
+      - "./certbot/www:/var/www/certbot/:ro"
+      - "./certbot/conf/:/etc/nginx/ssl/:ro"
+  certbot:
+    image: "certbot/certbot:latest"
+    volumes:
+      - "./certbot/www/:/var/www/certbot/:rw"
+      - "./certbot/conf/:/etc/letsencrypt/:rw"
