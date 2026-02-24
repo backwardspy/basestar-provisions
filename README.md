@@ -15,6 +15,7 @@ set required environment variables
 
 ```bash
 $ export CASPER_DISCORD_TOKEN=token-goes-here
+$ export BOOGIEBOT_DISCORD_TOKEN=token-goes-here
 ```
 
 bring containers up

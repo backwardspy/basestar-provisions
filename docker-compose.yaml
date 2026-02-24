@@ -10,6 +10,14 @@ services:
       - "TOKEN=$CASPER_DISCORD_TOKEN"
       - "PREFIX=!"
 
+  boogiebot:
+    image: "ghcr.io/nicksquiggles/boogiebot:main"
+    restart: "always"
+    volumes:
+      - "/var/lib/boogiebot/boogiebot.db:/app/boogiebot.db"
+    environment:
+      - "TOKEN=$BOOGIEBOT_DISCORD_TOKEN"
+
   sparkler:
     image: "ghcr.io/backwardspy/sparkler:main"
     restart: "always"
