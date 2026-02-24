@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   casper:
     image: "phasecorex/red-discordbot"
