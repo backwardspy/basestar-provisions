@@ -12,8 +12,7 @@ services:
     image: "ghcr.io/nicksquiggles/boogiebot:main"
     restart: "always"
     volumes:
-      - type: bind
-        source: /var/lib/boogiebot/boogiebot.db
-        target: /app/boogiebot.db
+      - "/var/lib/boogiebot:/data"
     environment:
       - "TOKEN=$BOOGIEBOT_DISCORD_TOKEN"
+      - "BOOGIEBOT_DB_PATH=/data/boogiebot.db"
